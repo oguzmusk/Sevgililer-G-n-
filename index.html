@@ -74,22 +74,17 @@
     <script src="theme.js"></script>
     <script src="script.js"></script>
 </body>
-    <script>
+   <script>
 document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("bgMusic");
     const button = document.getElementById("musicToggle");
 
     button.addEventListener("click", function () {
-        if (music.paused) {
-            music.play().then(() => {
-                button.textContent = "⏸️ Müziği Durdur";
-            }).catch(err => {
-                alert("Tarayıcı müziği engelledi. Tekrar tıkla ❤️");
-            });
-        } else {
-            music.pause();
-            button.textContent = "🎵 Müziği Başlat";
-        }
+        music.play().then(() => {
+            button.textContent = "⏸️ Müziği Durdur";
+        }).catch(() => {
+            alert("🎧 Lütfen müziği başlatmak için tekrar dokun ❤️");
+        });
     });
 });
 </script>
